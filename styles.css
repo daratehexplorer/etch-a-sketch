@@ -11,7 +11,7 @@ body {
     gap: 2%;
 }
 
-/* Header Area */
+/* Header*/
 .header {
     display: flex; 
     width: 30%;
@@ -60,7 +60,7 @@ button {
     color: white;
 }
 
-/* Grid Area */
+/* Grid*/
 .container {
     width: 35%;
     position: relative;
@@ -85,6 +85,7 @@ button {
 :root {
     --userInput-width: 6.25%;
     --userInput-height: 6.25%;
+    --randomColor: black;
   }
 
 .square {
@@ -95,6 +96,6 @@ button {
     }
 
 .square.active {
-    background-color: black;
+    background-color: var(--randomColor)
 }
 

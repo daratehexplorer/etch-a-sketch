@@ -1,4 +1,4 @@
-/* Create of divs */
+/* Create divs */
 const body = document.querySelector("body");
 
 const header = document.createElement('div');
@@ -37,9 +37,16 @@ container.appendChild(content);
 for (i = 0; i < 256; i++) {
     const square = document.createElement('div');
     square.classList.add('square');
-    square.addEventListener("mouseenter", () => {
-        square.classList.add('active');
+
+    const color = document.querySelectorAll('.square');
+    color.forEach(function (x) {
+        x.addEventListener("mouseenter", () => {
+            x.classList.add('active');
+            let colors = '#' + Math.floor(Math.random() * 16777215).toString(16);
+            x.style.setProperty('--randomColor', colors);
+        });
     });
+
     content.appendChild(square);
 };
 
@@ -51,15 +58,21 @@ newGridBtn.addEventListener('click', () => {
         content.innerHTML = '';
 
         let root = document.documentElement;
-            root.style.setProperty('--userInput-width', ((100/userInput) + "%"));
-            root.style.setProperty('--userInput-height', ((100/userInput) + "%"));
+        root.style.setProperty('--userInput-width', ((100 / userInput) + "%"));
+        root.style.setProperty('--userInput-height', ((100 / userInput) + "%"));
 
         let gridSize = Math.pow(userInput, 2);
         for (i = 0; i < gridSize; i++) {
             const square = document.createElement('div');
             square.classList.add('square');
-            square.addEventListener("mouseenter", () => {
-                square.classList.add('active');
+
+            const color = document.querySelectorAll('.square');
+            color.forEach(function (x) {
+                x.addEventListener("mouseenter", () => {
+                    x.classList.add('active');
+                    let colors = '#' + Math.floor(Math.random() * 16777215).toString(16);
+                    x.style.setProperty('--randomColor', colors);
+                });
             });
             content.appendChild(square);
         };
@@ -75,3 +88,4 @@ clearBtn.addEventListener('click', () => {
         x.classList.remove('active');
     });
 });
+
