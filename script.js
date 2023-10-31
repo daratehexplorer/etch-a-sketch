@@ -26,16 +26,32 @@ const content = document.createElement('div')
 content.classList.add('content');
 container.appendChild(content);
 
-/* Generate new grid */
-let userInput = '';
-newGridBtn.addEventListener('click', () => {
-    userInput = prompt('How many squares do you want each side of your grid to have?'); 
-    let gridSize = Math.pow(userInput, 2);
-    for (i = 0; i < gridSize; i++) {
-        const square = document.createElement('div');
-        square.classList.add('square');
-        content.appendChild(square);
-    };
-});
+/* Default grid */
+for (i = 0; i < 256; i++) {
+    const square = document.createElement('div');
+    square.classList.add('square');
+    content.appendChild(square);
+};
 
+/* Generate new grid */
+newGridBtn.addEventListener('click', () => {
+    let userInput = prompt('How many squares do you want each side of your grid to have?'); 
+    
+    if (userInput <= 100) {
+        content.innerHTML = '';
+
+        let root = document.documentElement;
+            root.style.setProperty('--userInput-width', ((100/userInput) + "%"));
+            root.style.setProperty('--userInput-height', ((100/userInput) + "%"));
+
+        let gridSize = Math.pow(userInput, 2);
+        for (i = 0; i < gridSize; i++) {
+            const square = document.createElement('div');
+            square.classList.add('square');
+            content.appendChild(square);
+        };
+    } else {
+        alert('Please try again with a smaller number, as any grid larger than 100x100 may cause a crash.');
+    }
+});
 
