@@ -40,19 +40,24 @@ body {
     font-size: 2vh;
 }   
 
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    height: 25%;
+    width: 50%;
+}
+
 button {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 25%;
-    width: 20%;
+    width: 40%;
     font-size: 0.7vw;
     font-weight: 550;
     border-width: 0.2vw;
     border-radius: 0.3vw;
     background-color: #313233;
     color: white;
-
 }
 
 /* Grid Area */
@@ -86,6 +91,10 @@ button {
     display: flex;
     width: var(--userInput-width);
     height: var(--userInput-height);
-    /* width: figure out how to take user input and return as new percentage */
+    background-color: white;
     }
+
+.square.active {
+    background-color: black;
+}
 

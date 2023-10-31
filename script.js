@@ -13,9 +13,16 @@ header.classList.add('header')
     instruction.textContent = 'Click below to generate a new grid.';
     header.appendChild(instruction);
     
-    const newGridBtn = document.createElement('button');
-    newGridBtn.textContent = 'GENERATE';
-    header.appendChild(newGridBtn);
+    const buttons = document.createElement('div')
+    buttons.classList.add('buttons')
+        const newGridBtn = document.createElement('button');
+        newGridBtn.textContent = 'GENERATE';
+        buttons.appendChild(newGridBtn);
+
+        const clearBtn = document.createElement('button');
+        clearBtn.textContent = 'CLEAR';
+        buttons.appendChild(clearBtn);
+    header.appendChild(buttons);
 body.appendChild(header);
 
 const container = document.createElement('div');
@@ -30,6 +37,9 @@ container.appendChild(content);
 for (i = 0; i < 256; i++) {
     const square = document.createElement('div');
     square.classList.add('square');
+    square.addEventListener("mouseenter", () => {
+        square.classList.add('active');
+    });
     content.appendChild(square);
 };
 
@@ -48,6 +58,9 @@ newGridBtn.addEventListener('click', () => {
         for (i = 0; i < gridSize; i++) {
             const square = document.createElement('div');
             square.classList.add('square');
+            square.addEventListener("mouseenter", () => {
+                square.classList.add('active');
+            });
             content.appendChild(square);
         };
     } else {
@@ -55,3 +68,10 @@ newGridBtn.addEventListener('click', () => {
     }
 });
 
+/* Clear existing coloring */
+clearBtn.addEventListener('click', () => {
+    const clear = content.childNodes;
+    clear.forEach(function(x) {
+        x.classList.remove('active');
+    });
+});
