@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 35vw;
+    position: absolute;
+    border: 5px solid black;
+}
+
+
+
+.square {
+    display: flex;
+    flex: 0 0 6.25%;
+    width: 6.25%;
+    }
+
+.square:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
